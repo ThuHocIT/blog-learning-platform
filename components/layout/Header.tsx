@@ -16,7 +16,11 @@ export default function Header() {
           <Link href="/about" className="hover:text-primary-600 font-medium">Giới thiệu</Link>
           <Link href="/contact" className="hover:text-primary-600 font-medium">Liên hệ</Link>
         </nav>
-        <button className="btn-primary">Bắt đầu</button>
+        <Link href="/blog">
+  <button className="btn-primary">
+    Bắt đầu
+  </button>
+</Link>
       </div>
     </header>
   );

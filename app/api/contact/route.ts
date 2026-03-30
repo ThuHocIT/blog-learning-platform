@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     // Validate dữ liệu một lần nữa ở phía Server để đảm bảo an toàn 
     const validatedData = contactSchema.parse(body);
 
-    // Ở đây bạn có thể log ra để kiểm tra 
+    // Ở đây bạn có thể xử lý dữ liệu, ví dụ lưu vào database hoặc gửi email
     console.log('Dữ liệu nhận được tại Server:', validatedData);
 
     // Giả lập thời gian xử lý (như lưu vào database) 

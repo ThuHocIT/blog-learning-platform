@@ -1,23 +1,204 @@
 [
   {
     "id": "1",
-    "title": "Giới thiệu về Next.js 16",
-    "slug": "gioi-thieu-nextjs-16",
-    "excerpt": "Tìm hiểu về các tính năng mới trong Next.js 16 và App Router",
-    "content": "## Nội dung chi tiết bài viết\n\nNext.js 16 mang đến nhiều cải tiến vượt bậc về hiệu suất và trải nghiệm lập trình viên. App Router giờ đây đã trở thành tiêu chuẩn vàng cho việc xây dựng ứng dụng React hiện đại...",
+    "title": "Lộ trình học Next.js 16 từ cơ bản đến nâng cao",
+    "slug": "lo-trinh-hoc-nextjs-16",
+    "excerpt": "Khám phá lộ trình chi tiết để làm chủ Next.js 16, từ việc hiểu về Server Components đến các kỹ thuật tối ưu hóa hiệu suất phức tạp.",
+    "content": "## Tại sao nên học Next.js vào năm 2026?\n\nNext.js không chỉ là một framework React, nó đã trở thành một hệ sinh thái hoàn chỉnh để xây dựng các ứng dụng web quy mô lớn. Với phiên bản 16, việc quản lý dữ liệu và render trang trở nên trực quan hơn bao giờ hết.\n\n### Các cột mốc quan trọng:\n1. **Nắm vững React Server Components (RSC):** Hiểu cách tách biệt logic server và client để giảm dung lượng bundle gửi đến trình duyệt.\n2. **Tối ưu hóa Routing:** Sử dụng thành thạo App Router, Parallel Routes và Intercepting Routes.\n3. **Quản lý Cache:** Học cách sử dụng `revalidateTag` và `revalidatePath` để kiểm soát dữ liệu động.\n\nĐừng quên thực hành qua các dự án thực tế như Blog này để hiểu sâu hơn về cách vận hành của framework!",
     "coverImage": "/images/posts/nextjs-16.jpg",
     "publishedAt": "2024-01-15T10:00:00Z",
-    "readingTime": 8,
     "author": {
       "id": "1",
       "name": "Nguyễn Văn A",
       "avatar": "/images/authors/author-1.jpg",
-      "bio": "Full-stack Developer"
+      "bio": "Full-stack Developer chuyên về kiến trúc Next.js."
     },
     "category": {
       "id": "1",
       "name": "Tutorial",
       "slug": "tutorial"
-    }
+    },
+    "tags": ["nextjs", "react", "frontend"],
+    "readingTime": 5
+  },
+  {
+    "id": "2",
+    "title": "Tối ưu hóa hình ảnh với Next/Image: Bí quyết đạt điểm Lighthouse 100",
+    "slug": "toi-uu-hoa-hinh-anh-nextjs",
+    "excerpt": "Hình ảnh chiếm phần lớn dung lượng tải trang. Học cách sử dụng component Image để tự động nén, thay đổi kích thước và lazy load.",
+    "content": "## Sức mạnh của Next/Image\n\nSử dụng thẻ `<img>` truyền thống là sai lầm phổ biến nhất khiến trang web bị chậm. Component `Image` của Next.js giải quyết vấn đề này một cách tự động.\n\n### Những tính năng 'thần thánh':\n* **Tự động chuyển đổi định dạng:** Chuyển từ JPG/PNG sang WebP hoặc AVIF tùy theo trình duyệt hỗ trợ.\n* **Lazy Loading:** Chỉ tải ảnh khi người dùng cuộn đến vị trí đó.\n* **Placeholder:** Hiển thị hiệu ứng mờ (blur) trong khi chờ ảnh chất lượng cao tải xong, giúp người dùng không cảm thấy trang bị 'nháy'.\n\n### Cấu hình Remote Patterns:\nNếu bạn dùng ảnh từ nguồn bên ngoài như Unsplash hay Cloudinary, đừng quên cấu hình trong `next.config.js` để Next.js có thể tối ưu hóa chúng.",
+    "coverImage": "https://picsum.photos/id/1/800/450",
+    "publishedAt": "2024-02-10T08:30:00Z",
+    "author": {
+      "id": "2",
+      "name": "Trần Thị B",
+      "avatar": "/images/authors/author-2.jpg",
+      "bio": "Chuyên gia tối ưu hóa hiệu suất Web."
+    },
+    "category": {
+      "id": "2",
+      "name": "Performance",
+      "slug": "performance"
+    },
+    "tags": ["images", "lighthouse", "optimization"],
+    "readingTime": 4
+  },
+  {
+    "id": "3",
+    "title": "Làm việc với Form và Zod Validation trong React Server Components",
+    "slug": "form-validation-zod-nextjs",
+    "excerpt": "Xác thực dữ liệu ở cả Client và Server chưa bao giờ dễ dàng đến thế với sự kết hợp của React Hook Form và Zod.",
+    "content": "## Tại sao phải Validate ở cả hai phía?\n\nValidate ở Client giúp trải nghiệm người dùng mượt mà hơn (hiện lỗi ngay lập tức). Validate ở Server là bắt buộc để đảm bảo an toàn dữ liệu trước khi lưu vào database.\n\n### Quy trình triển khai:\n1. **Định nghĩa Schema:** Sử dụng Zod để tạo ra một 'nguồn chân lý duy nhất' cho dữ liệu.\n2. **Kết nối React Hook Form:** Sử dụng `zodResolver` để tự động hóa việc bắt lỗi trên giao diện.\n3. **Server Action Validation:** Sử dụng lại Schema đó trong API Route hoặc Server Action để kiểm tra dữ liệu lần cuối.\n\nKỹ thuật này giúp bạn tránh được các lỗi 'data corruption' và tăng tính bảo mật cho ứng dụng.",
+    "coverImage": "https://picsum.photos/id/2/800/450",
+    "publishedAt": "2024-03-05T14:20:00Z",
+    "author": {
+      "id": "1",
+      "name": "Nguyễn Văn A",
+      "avatar": "/images/authors/author-1.jpg",
+      "bio": "Full-stack Developer."
+    },
+    "category": {
+      "id": "1",
+      "name": "Tutorial",
+      "slug": "tutorial"
+    },
+    "tags": ["form", "zod", "security"],
+    "readingTime": 7
+  },
+
+
+  
+  {
+    "id": "4",
+    "title": "Mastering React Server Components (RSC) trong thực tế",
+    "slug": "mastering-react-server-components",
+    "excerpt": "Hiểu sâu về cơ chế hoạt động của RSC và cách nó thay đổi hoàn toàn tư duy xây dựng ứng dụng React hiện đại.",
+    "content": "## RSC là gì và tại sao nó lại quan trọng?\n\nReact Server Components cho phép chúng ta render component trên server và gửi kết quả về client dưới dạng một định dạng nhẹ, thay vì gửi toàn bộ mã JavaScript.\n\n### Lợi ích chính:\n* **Zero Bundle Size:** Các thư viện dùng trên server không bị tải về máy khách.\n* **Truy cập Database trực tiếp:** Bạn có thể gọi DB ngay trong component.\n* **Bảo mật:** Các API keys không bao giờ bị lộ ra ngoài trình duyệt.\n\n### Khi nào nên dùng Client Components?\nChỉ dùng khi bạn cần sự tương tác như `onClick`, `onChange` hoặc sử dụng các hooks như `useState`, `useEffect`.",
+    "coverImage": "https://picsum.photos/id/10/800/450",
+    "publishedAt": "2024-03-10T09:00:00Z",
+    "author": {
+      "id": "2",
+      "name": "Trần Thị B",
+      "avatar": "/images/authors/author-2.jpg",
+      "bio": "Software Engineer tại Vercel."
+    },
+    "category": {
+      "id": "1",
+      "name": "Tutorial",
+      "slug": "tutorial"
+    },
+    "tags": ["react", "server-components", "nextjs"],
+    "readingTime": 8
+  },
+  {
+    "id": "5",
+    "title": "Chiến lược Caching trong Next.js 16: Full Guide",
+    "slug": "nextjs-caching-strategy",
+    "excerpt": "Tìm hiểu 4 tầng caching của Next.js và cách kiểm soát dữ liệu luôn mới mà vẫn giữ được tốc độ tải trang cực nhanh.",
+    "content": "## 4 Tầng Caching của Next.js\n\n1. **Request Memoization:** Tránh gọi một API nhiều lần trong cùng một lượt render.\n2. **Data Cache:** Lưu trữ kết quả fetch dữ liệu giữa các người dùng và request.\n3. **Full Route Cache:** Lưu toàn bộ HTML và cấu trúc trang tại thời điểm build.\n4. **Router Cache:** Cache phía client giúp chuyển trang ngay lập tức.\n\n### Cách làm tươi dữ liệu (Revalidation):\nSử dụng `export const revalidate = 3600` cho thời gian hoặc `revalidateTag()` để làm mới theo sự kiện.",
+    "coverImage": "https://picsum.photos/id/20/800/450",
+    "publishedAt": "2024-03-12T15:30:00Z",
+    "author": {
+      "id": "1",
+      "name": "Nguyễn Văn A",
+      "avatar": "/images/authors/author-1.jpg",
+      "bio": "Full-stack Developer."
+    },
+    "category": {
+      "id": "2",
+      "name": "Performance",
+      "slug": "performance"
+    },
+    "tags": ["caching", "performance", "backend"],
+    "readingTime": 10
+  },
+  {
+    "id": "6",
+    "title": "Xây dựng hệ thống Design System với Tailwind CSS",
+    "slug": "design-system-tailwind-css",
+    "excerpt": "Làm thế nào để tạo ra một bộ quy chuẩn thiết kế đồng nhất, dễ bảo trì cho dự án lớn bằng sức mạnh của Tailwind v4.",
+    "content": "## Tại sao cần Design System?\n\nDesign System giúp team thiết kế và lập trình nói cùng một ngôn ngữ. Với Tailwind, bạn có thể định nghĩa mọi thứ trong file CSS config.\n\n### Các bước triển khai:\n* **Define Colors:** Sử dụng bảng màu chuẩn của thương hiệu.\n* **Typography:** Thiết lập các scale cho Heading, Body và Caption.\n* **Spacing:** Quy định các khoảng cách cố định (4px, 8px, 16px).\n\nSử dụng directive `@theme` trong Tailwind v4 giúp việc quản lý các biến này trở nên cực kỳ trực quan.",
+    "coverImage": "https://picsum.photos/id/30/800/450",
+    "publishedAt": "2024-03-15T10:00:00Z",
+    "author": {
+      "id": "3",
+      "name": "Lê Văn C",
+      "avatar": "/images/authors/author-3.jpg",
+      "bio": "UI/UX Designer & Frontend Dev."
+    },
+    "category": {
+      "id": "3",
+      "name": "Design",
+      "slug": "design"
+    },
+    "tags": ["tailwind", "css", "design-system"],
+    "readingTime": 6
+  },
+  {
+    "id": "7",
+    "title": "Bảo mật ứng dụng Next.js: Những điều bạn phải biết",
+    "slug": "nextjs-security-best-practices",
+    "excerpt": "Từ ngăn chặn XSS đến quản lý Environment Variables, hãy bảo vệ ứng dụng của bạn trước các cuộc tấn công phổ biến.",
+    "content": "## Đừng bao giờ để lộ API Key!\n\nMọi biến môi trường không có tiền tố `NEXT_PUBLIC_` đều được ẩn ở phía server. Đây là lớp bảo mật đầu tiên.\n\n### Các biện pháp bổ sung:\n1. **Content Security Policy (CSP):** Hạn chế các nguồn script lạ.\n2. **Taint API:** Tính năng mới của React để ngăn chặn rò rỉ dữ liệu nhạy cảm từ server sang client.\n3. **Xác thực (Auth):** Luôn sử dụng các thư viện uy tín như NextAuth.js hoặc Clerk.",
+    "coverImage": "https://picsum.photos/id/40/800/450",
+    "publishedAt": "2024-03-18T14:00:00Z",
+    "author": {
+      "id": "1",
+      "name": "Nguyễn Văn A",
+      "avatar": "/images/authors/author-1.jpg",
+      "bio": "Full-stack Developer."
+    },
+    "category": {
+      "id": "1",
+      "name": "Tutorial",
+      "slug": "tutorial"
+    },
+    "tags": ["security", "auth", "backend"],
+    "readingTime": 9
+  },
+  {
+    "id": "8",
+    "title": "Triển khai Testing trong Next.js với Vitest và Playwright",
+    "slug": "testing-nextjs-apps",
+    "excerpt": "Hướng dẫn viết Unit Test cho logic và End-to-End Test cho luồng người dùng để đảm bảo ứng dụng không bao giờ lỗi.",
+    "content": "## Kiểm thử là đầu tư, không phải chi phí\n\nViết test giúp bạn tự tin hơn khi refactor code và thêm tính năng mới.\n\n### Các loại Test cần có:\n* **Unit Test (Vitest):** Test các hàm logic nhỏ, helper functions.\n* **Component Test:** Kiểm tra giao diện render đúng với các props khác nhau.\n* **E2E Test (Playwright):** Giả lập người dùng thật mở trình duyệt, click nút và gửi form.",
+    "coverImage": "https://picsum.photos/id/50/800/450",
+    "publishedAt": "2024-03-20T11:00:00Z",
+    "author": {
+      "id": "2",
+      "name": "Trần Thị B",
+      "avatar": "/images/authors/author-2.jpg",
+      "bio": "Software Engineer."
+    },
+    "category": {
+      "id": "1",
+      "name": "Tutorial",
+      "slug": "tutorial"
+    },
+    "tags": ["testing", "vitest", "playwright"],
+    "readingTime": 12
+  },
+  {
+    "id": "9",
+    "title": "Tương lai của Web: Edge Computing và Serverless",
+    "slug": "future-of-web-edge-computing",
+    "excerpt": "Khám phá cách Next.js tận dụng Edge Runtime để đưa mã nguồn của bạn đến gần người dùng nhất có thể.",
+    "content": "## Edge Runtime là gì?\n\nThay vì chạy code ở một trung tâm dữ liệu duy nhất, Edge Computing chạy code tại các nút mạng gần người dùng nhất (như CDN).\n\n### Tại sao lại nhanh hơn?\n* **Giảm độ trễ (Latency):** Dữ liệu không phải đi nửa vòng trái đất.\n* **Cold Start thấp:** Khởi động nhanh hơn Serverless truyền thống.\n* **Phù hợp cho:** Middleware, Geo-targeting, và Personalization.",
+    "coverImage": "https://picsum.photos/id/60/800/450",
+    "publishedAt": "2024-03-22T08:00:00Z",
+    "author": {
+      "id": "3",
+      "name": "Lê Văn C",
+      "avatar": "/images/authors/author-3.jpg",
+      "bio": "UI/UX Designer & Frontend Dev."
+    },
+    "category": {
+      "id": "2",
+      "name": "Performance",
+      "slug": "performance"
+    },
+    "tags": ["edge", "serverless", "deployment"],
+    "readingTime": 7
   }
+
 ]
