@@ -3,6 +3,9 @@
 Một nền tảng Blog hiện đại được xây dựng để thực hành các kỹ thuật Next.js mới nhất (phiên bản 15+). Dự án tập trung vào hiệu suất, trải nghiệm người dùng và quy trình phát triển chuẩn chỉnh.
 
 🌐 **Xem Demo trực tiếp:** [https://blog-learning-platform.vercel.app](https://blog-learning-platform.vercel.app)
+🌐 **Xem Demo trực tiếp:** [https://docs.google.com/document/d/12icP4KAvcB7bmJ9V82sOPyIVh-FKPghuGu7QNQJ_YM8/edit?usp=sharing
+](https://docs.google.com/document/d/12icP4KAvcB7bmJ9V82sOPyIVh-FKPghuGu7QNQJ_YM8/edit?usp=sharing
+)
 
 ---
 
