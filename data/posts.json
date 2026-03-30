@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "title": "Giới thiệu về Next.js 16",
+    "slug": "gioi-thieu-nextjs-16",
+    "excerpt": "Tìm hiểu về các tính năng mới trong Next.js 16 và App Router",
+    "content": "## Nội dung chi tiết bài viết\n\nNext.js 16 mang đến nhiều cải tiến vượt bậc về hiệu suất và trải nghiệm lập trình viên. App Router giờ đây đã trở thành tiêu chuẩn vàng cho việc xây dựng ứng dụng React hiện đại...",
+    "coverImage": "/images/posts/nextjs-16.jpg",
+    "publishedAt": "2024-01-15T10:00:00Z",
+    "readingTime": 8,
+    "author": {
+      "id": "1",
+      "name": "Nguyễn Văn A",
+      "avatar": "/images/authors/author-1.jpg",
+      "bio": "Full-stack Developer"
+    },
+    "category": {
+      "id": "1",
+      "name": "Tutorial",
+      "slug": "tutorial"
+    }
+  }
+]
