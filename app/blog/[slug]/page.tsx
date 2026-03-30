@@ -3,8 +3,6 @@ import { getPostBySlug, getAllPosts } from '@/lib/api';
 import { Post } from '@/types';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 
 // 1. Tạo các tham số tĩnh cho SSG [cite: 389]
 export async function generateStaticParams() {
@@ -49,7 +47,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       
       {/* Nội dung bài viết */}
       <div className="prose lg:prose-xl max-w-none text-gray-800 leading-relaxed">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
+        {post.content}
       </div>
     </article>
   );
