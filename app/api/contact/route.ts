@@ -1,35 +1,53 @@
 // app/api/contact/route.ts
 import { NextResponse } from 'next/server';
-import { contactSchema, type ContactFormData } from '@/lib/validations'; // Dùng lại schema để validate ở server 
+import { contactSchema, type ContactFormData } from '@/lib/validations';
 
-export async function POST(request: Request) {
+type ContactApiResponse = {
+  success: boolean;
+  message: string;
+  errors?: Record<string, string[]>;
+};
+
+export async function POST(req: Request) {
+  let body: unknown;
+
   try {
-    const body = await request.json();
-    const parsed = contactSchema.safeParse(body);
+    body = await req.json();
+  } catch {
+    const res: ContactApiResponse = {
+      success: false,
+      message: 'Body JSON không hợp lệ.',
+    };
+    return NextResponse.json(res, { status: 400 });
+  }
 
-    if (!parsed.success) {
-      return NextResponse.json(
-        { error: 'Dữ liệu không hợp lệ', issues: parsed.error.flatten() },
-        { status: 400 }
-      );
-    }
+  const parsed = contactSchema.safeParse(body);
+  if (!parsed.success) {
+    const res: ContactApiResponse = {
+      success: false,
+      message: 'Dữ liệu không hợp lệ.',
+      errors: parsed.error.flatten().fieldErrors,
+    };
+    return NextResponse.json(res, { status: 422 });
+  }
 
-    const payload: ContactFormData = parsed.data;
+  const payload: ContactFormData = parsed.data;
 
-    // Ở đây bạn có thể xử lý dữ liệu, ví dụ lưu vào database hoặc gửi email
-    console.log('Dữ liệu nhận được tại Server:', payload);
+  try {
+    // TODO: xử lý thực tế (gửi email / lưu DB / gọi service)
+    // console.log('Contact payload:', payload);
 
-    // Giả lập thời gian xử lý (như lưu vào database) 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    return NextResponse.json({
+    const res: ContactApiResponse = {
       success: true,
-      message: 'Cảm ơn bạn! Tin nhắn đã được gửi thành công.', 
-    });
+      message: 'Gửi tin nhắn thành công!',
+    };
+    return NextResponse.json(res, { status: 200 });
   } catch (error) {
-    return NextResponse.json(
-      { success: false, message: 'Dữ liệu không hợp lệ.' },
-      { status: 400 } 
-    );
+    console.error('Contact API error:', error);
+    const res: ContactApiResponse = {
+      success: false,
+      message: 'Lỗi máy chủ, vui lòng thử lại sau.',
+    };
+    return NextResponse.json(res, { status: 500 });
   }
 }
