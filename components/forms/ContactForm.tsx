@@ -23,7 +23,6 @@ export default function ContactForm() {
   // Hàm xử lý khi submit form thành công 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // Gửi dữ liệu đến API Route đã tạo 
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -32,14 +31,20 @@ export default function ContactForm() {
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
-
-      if (result.success) {
-        toast.success(result.message || 'Gửi tin nhắn thành công!'); 
-        reset(); // Xóa trắng form sau khi gửi thành công 
-      } else {
-        toast.error(result.message || 'Có lỗi xảy ra, vui lòng thử lại.');
+      let result: { success?: boolean; message?: string } = {};
+      try {
+        result = await response.json();
+      } catch {
+        // ignore JSON parse error, fallback message below
       }
+
+      if (!response.ok || !result.success) {
+        toast.error(result.message || 'Có lỗi xảy ra, vui lòng thử lại.');
+        return;
+      }
+
+      toast.success(result.message || 'Gửi tin nhắn thành công!');
+      reset();
     } catch (error) {
       toast.error('Không thể kết nối đến máy chủ.');
       console.error('Lỗi gửi form:', error);
@@ -53,8 +58,11 @@ export default function ContactForm() {
     >
       {/* Trường Họ tên  */}
       <div>
-        <label className="block text-sm font-semibold mb-2 text-gray-700">Họ tên</label>
+        <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-700">Họ tên</label>
         <input
+          id="name"
+          aria-invalid={!!errors.name}
+          aria-describedby={errors.name ? 'name-error' : undefined}
           {...register('name')}
           placeholder="Nguyễn Văn A"
           className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none transition-all ${
@@ -62,15 +70,18 @@ export default function ContactForm() {
           }`}
         />
         {errors.name && (
-          <p className="text-red-500 text-xs mt-1 italic">{errors.name.message}</p> 
+          <p id="name-error" className="text-red-500 text-xs mt-1 italic">{errors.name.message}</p>
         )}
       </div>
 
       {/* Trường Email  */}
       <div>
-        <label className="block text-sm font-semibold mb-2 text-gray-700">Email</label>
+        <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-700">Email</label>
         <input
+          id="email"
           type="email"
+          aria-invalid={!!errors.email}
+          aria-describedby={errors.email ? 'email-error' : undefined}
           {...register('email')}
           placeholder="example@email.com"
           className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none transition-all ${
@@ -78,14 +89,17 @@ export default function ContactForm() {
           }`}
         />
         {errors.email && (
-          <p className="text-red-500 text-xs mt-1 italic">{errors.email.message}</p> 
+          <p id="email-error" className="text-red-500 text-xs mt-1 italic">{errors.email.message}</p>
         )}
       </div>
 
       {/* Trường Tin nhắn */}
       <div>
-        <label className="block text-sm font-semibold mb-2 text-gray-700">Tin nhắn</label>
+        <label htmlFor="message" className="block text-sm font-semibold mb-2 text-gray-700">Tin nhắn</label>
         <textarea
+          id="message"
+          aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? 'message-error' : undefined}
           {...register('message')}
           rows={5}
           placeholder="Nhập nội dung tin nhắn của bạn tại đây..."
@@ -94,7 +108,7 @@ export default function ContactForm() {
           }`}
         />
         {errors.message && (
-          <p className="text-red-500 text-xs mt-1 italic">{errors.message.message}</p> 
+          <p id="message-error" className="text-red-500 text-xs mt-1 italic">{errors.message.message}</p>
         )}
       </div>
 
