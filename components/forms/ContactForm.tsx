@@ -1,7 +1,7 @@
 'use client'; // Bắt buộc cho các thành phần có tính tương tác như Form 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { contactSchema, ContactFormData } from '@/lib/validations'; // Import schema đã định nghĩa 
+import { contactSchema, type ContactFormData } from '@/lib/validations'; // Import schema đã định nghĩa 
 import toast from 'react-hot-toast';
 
 export default function ContactForm() {
@@ -13,6 +13,11 @@ export default function ContactForm() {
     reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      message: '',
+    },
   });
 
   // Hàm xử lý khi submit form thành công 
