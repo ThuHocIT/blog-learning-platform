@@ -4,7 +4,7 @@ import { Post } from '@/types';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 
-// 1. Tạo các tham số tĩnh cho SSG [cite: 389]
+// 1. Tạo các tham số tĩnh cho SSG
 export async function generateStaticParams() {
   const posts: Post[] = await getAllPosts(); 
   return posts.map((post) => ({
@@ -17,10 +17,10 @@ export const revalidate = 3600;
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = await getPostBySlug(slug); // [cite: 410]
+  const post = await getPostBySlug(slug);
 
   if (!post) {
-    notFound(); // [cite: 411, 412]
+    notFound(); 
   }
 
   return (
