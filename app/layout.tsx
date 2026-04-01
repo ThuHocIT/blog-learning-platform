@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'), // Cần thiết để SEO hoạt động đúng 
   title: 'NextJS Blog Platform',
   description: 'Learning Next.js through building a blog',
@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
         {children}
         <Toaster position="bottom-right" /> {/* Nơi hiển thị thông báo [cite: 319] */}

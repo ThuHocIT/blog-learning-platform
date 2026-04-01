@@ -16,13 +16,13 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   return (
     <div className="container py-16">
       <h1 className="mb-8">Tất cả bài viết</h1>
-      <SearchBar /> [cite: 370]
+      <SearchBar />
       <div className="mt-8">
         {posts.length > 0 ? (
           <PostList posts={posts} />
         ) : (
           <p className="text-center text-gray-500 py-10">
-            Không tìm thấy bài viết nào cho từ khóa "{q}"
+            Không tìm thấy bài viết nào cho từ khóa &quot;{q}&quot;
           </p>
         )}
       </div>

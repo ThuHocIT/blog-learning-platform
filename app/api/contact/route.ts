@@ -1,6 +1,6 @@
 // app/api/contact/route.ts
 import { NextResponse } from 'next/server';
-import { contactSchema, type ContactFormData } from '@/lib/validations';
+import { contactSchema } from '@/lib/validations';
 
 type ContactApiResponse = {
   success: boolean;
@@ -31,11 +31,9 @@ export async function POST(req: Request) {
     return NextResponse.json(res, { status: 422 });
   }
 
-  const payload: ContactFormData = parsed.data;
-
   try {
     // TODO: xử lý thực tế (gửi email / lưu DB / gọi service)
-    // console.log('Contact payload:', payload);
+    // console.log('Contact payload:', parsed.data);
 
     const res: ContactApiResponse = {
       success: true,
